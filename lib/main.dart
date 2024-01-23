@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:themechange/bloc/theme_cubit.dart';
+import 'package:themechange/config/app_theme.dart';
 
 Future<void> main() async {
   /// initialize hydrated bloc
@@ -29,9 +30,9 @@ class MyApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             themeMode: mode,
             title: 'Theme change',
-            theme: ThemeData.light(),
-            darkTheme: ThemeData.dark(),
-            home: const MyHomePage(title: 'Flutter Demo Home Page'),
+            theme: AppTheme.light,
+            darkTheme: AppTheme.dark,
+            home: MyHomePage(),
           );
         },
       ),
@@ -39,17 +40,10 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+class MyHomePage extends StatelessWidget {
+  const MyHomePage({super.key});
 
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  final List<(String, ThemeMode)> _themes = [
+  final List<(String, ThemeMode)> _themes = const [
     ('Dark', ThemeMode.dark),
     ('Light', ThemeMode.light),
     ('System', ThemeMode.system),
@@ -58,7 +52,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(widget.title)),
+      appBar: AppBar(title: const Text('Change Theme')),
       body: Center(
         child: BlocBuilder<ThemeCubit, ThemeMode>(
           builder: (context, selectedTheme) {
