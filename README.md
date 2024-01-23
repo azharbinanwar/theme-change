@@ -1,16 +1,16 @@
 # Theme Mode
 
-A new Flutter project.
+It's a basic app that shows how to use the theme mode in Flutter.
 
-## Getting Started
+## How to use
 
-This project is a starting point for a Flutter application.
+Run this command in your project root directory
 
-A few resources to get you started if this is your first Flutter project:
+```
+flutter pub get
+```
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Run the below command to run your project
+```
+flutter run
+```
